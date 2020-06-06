@@ -102,7 +102,7 @@ let clickHandler = () => {
     chart();
     //------draw chart---------//
   } catch (err) {
-    errorMsg.value = 'Error: ' + err.message;
+    errorMsg.value = 'OOPSY DAISY Error: ' + err.message;
     console.log(errorMsg);
   }
 };
