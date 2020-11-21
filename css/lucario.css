@@ -8,7 +8,20 @@
 .cm-s-lucario.CodeMirror,
 .cm-s-lucario .CodeMirror-gutters {
   /* background-color: #2b3e50 !important; */
-  background-color: #0e202d !important;
+  /* background-color: #0e202d !important; */
+  /* background-color: #0d2521 !important; */
+  /* background: rgb(5, 23, 28);
+  background: linear-gradient(
+    158deg,
+    rgba(5, 23, 28, 1) 8%,
+    rgba(13, 37, 33, 1) 55%
+  ) !important; */
+  background: rgb(21, 49, 68);
+  background: linear-gradient(
+    158deg,
+    rgba(21, 49, 68, 1) 8%,
+    rgba(0, 62, 65, 1) 94%
+  ) !important;
   color: #f8f8f2 !important;
   border: none;
 }

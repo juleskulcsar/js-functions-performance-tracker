@@ -2,6 +2,8 @@
 
 ## Calculate javascript functions time performance depending on input size. The performance is an estimate (depends on machine, browser etc), but the overall trend will highlight the code performance.
 
+![](bigO.gif)
+
 Check browser compatibility before using
 
 > javascript, html, css

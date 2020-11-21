@@ -10,53 +10,70 @@ body {
   padding: 1em 6em;
   font-family: tahoma, arial, sans-serif;
   background-color: #153144;
+  background-image: url('wave.svg');
   color: white;
+  background-size: cover;
 }
 
 .CodeMirror {
-  width: 40rem;
+  width: 41rem;
   min-height: 25rem;
   display: inline-block;
-  border-radius: 2px;
+  filter: drop-shadow(1px 4px 12px #101820);
+  border-radius: 8px;
 }
 
 .cm-s-lucario.CodeMirror {
-  border-bottom: 3px solid #1c415a;
+  /* border-bottom: 3px solid #1c415a;
   border-left: 3px solid #1c415a;
   border-right: 3px solid #1c415a;
   border-top: 3px solid #1c415a;
-  border-radius: 5px;
+  border-radius: 5px; */
 }
 
 #errorMsg {
-  width: 40rem;
+  width: 41rem;
   max-height: 30rem;
-  color: #d32828;
+  color: #d13c18;
   font-size: 20px;
   display: inline-block;
-  border-bottom: 3px solid #1c415a;
-  border-left: 3px solid #1c415a;
-  border-right: 3px solid #1c415a;
-  border-top: 3px solid #1c415a;
-  border-radius: 5px;
+  outline: 0px none transparent;
+  border: none;
+  filter: drop-shadow(0 4px 10px #101820);
+  background: rgb(21, 49, 68);
+  background: linear-gradient(
+    158deg,
+    rgba(21, 49, 68, 1) 8%,
+    rgba(0, 62, 65, 1) 94%
+  );
+  border-radius: 8px;
+  margin-top: 5px;
 }
 
 #submit {
   display: inline-block;
-  color: #cbdae5;
-  border-radius: 4px;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-  background: rgb(223, 117, 20);
+  color: #b1b4b5;
+  background: #53686d;
   width: 10rem;
   height: 2rem;
   cursor: pointer;
-  outline: transparent;
-  /* font-size: 1.2rem; */
+  border-radius: 20px;
+  position: relative;
+  bottom: 3px;
+  filter: drop-shadow(1px 4px 12px #101820);
+  outline: none;
+}
+
+#submit:hover {
+  background: #d13c18;
 }
 
 .inputField {
   display: inline-block;
   padding-bottom: 1.5rem;
+  padding-left: 0.4rem;
+  border-radius: 8px;
+  filter: drop-shadow(1px 4px 12px #101820);
 }
 
 #chart {
@@ -64,8 +81,15 @@ body {
   padding-bottom: 6.3rem;
   padding-left: 1rem;
   margin-left: 3rem;
-  border: 3px solid #1c415a;
   border-radius: 5px;
+  background: rgb(21, 49, 68);
+  background: linear-gradient(
+    158deg,
+    rgba(21, 49, 68, 1) 8%,
+    rgba(0, 62, 65, 1) 94%
+  );
+  filter: drop-shadow(1px 4px 12px #101820);
+  border-radius: 8px;
 }
 
 .form__label {
@@ -76,7 +100,9 @@ body {
   display: block;
   transition: all 0.3s;
   transform: translateY(0rem);
-  color: #cbdae5;
+  color: #b1b4b5;
+  filter: drop-shadow(1px 4px 12px #101820);
+  border-radius: 8px;
 }
 
 #arg1,
@@ -89,11 +115,12 @@ body {
   background-color: rgb(255, 255, 255);
   border: none;
   display: block;
-  border-bottom: 0.3rem solid transparent;
   transition: all 0.3s;
+  filter: drop-shadow(1px 4px 12px #101820);
 }
 
 .title {
   text-align: center;
-  color: #cbdae5;
+  color: #b1b4b5;
+  filter: drop-shadow(1px 4px 12px #101820);
 }
