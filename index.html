@@ -1,53 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>testing</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.54.0/codemirror.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.54.0/codemirror.min.css"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.54.0/mode/javascript/javascript.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.54.0/theme/midnight.min.css"
-    />
-  </head>
-  <body>
-    <div class="title">
-      <h1> _ JS Functions Performance Visualisation</h1>
-    </div>
-    <div class="inputField">
-      <label class= "form__label" for="arg1">1st argument:</label>
-      <input type="text" id="arg1" name="arg1">
-    </div>
-    <div class="inputField">
-      <label class= "form__label" for="arg2">2nd argument:</label>
-      <input type="text" id="arg2" name="arg2">
-    </div>
-    <button id="submit" type="button">RUN</button>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>testing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles2.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.54.0/codemirror.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.54.0/codemirror.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.54.0/mode/javascript/javascript.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.54.0/theme/midnight.min.css" />
+</head>
+
+<body>
+  <div class="titleWrapper">
+    <h1 class="title"><span style="color: orange;">_</span> JS Functions BigO Visualisation</h1>
+  </div>
+  <div class="inputField">
+    <label class="form__label" for="arg1">arg 1:</label>
+    <input type="text" id="arg1" name="arg1" />
+  </div>
+  <div class="inputField">
+    <label class="form__label" for="arg2">arg 2:</label>
+    <input type="text" id="arg2" name="arg2" />
+  </div>
+  <button class="submit">call function</button>
+  <button class="add_2nd_solution">add 2nd solution</button>
+  <div id="wrapper">
     <div id="editor">
-      <textarea id="codearea" placeholder="add your funcion here"></textarea>
-      <div id="chart">
-        <canvas id="myChart" width="450" height="300"></canvas>
+      <div class="codeareaWrapper">
+        <textarea id="codearea" placeholder="add your function here"></textarea>
+        <textarea class="errorMsg" readonly cols="60" rows="4">Output will appear here</textarea>
       </div>
-      <textarea
-        id="errorMsg"
-        readonly
-        style="background-color:#0e202d;"
-        cols="60"
-        rows="5"
-      >
-      Output will appear here</textarea
-      >
+      <div class="codeareaWrapper">
+        <textarea id="codearea2" placeholder="add your function here" style="display: none;"></textarea>
+        <textarea class="errorMsg2" readonly style=" display:none;" cols="60"
+          rows="4">Output will appear here</textarea>
+      </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script></script>
-    <script src="index.js"></script>
-  </body>
+    <div id="chart">
+      <canvas id="myChart" width="450" height="450"></canvas>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  </script>
+  <script src="index2.js"></script>
+</body>
+
 </html>
