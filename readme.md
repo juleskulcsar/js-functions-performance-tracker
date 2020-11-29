@@ -22,16 +22,10 @@ RUN
 
 For now only runs with 1 and/or 2 arguments of type:
 
-- number
-- array
+-   number
+-   array
 
-The code will not run if comments are added in the editor
+The code will not run if comments are added in the editor. Only paste your function
 
-## Install Dependencies
-
-```
-npm install
-```
-
-- Version 1.00
-- License: MIT
+-   Version 1.00
+-   License: MIT
