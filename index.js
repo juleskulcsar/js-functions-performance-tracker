@@ -133,7 +133,7 @@ const editor = CodeMirror.fromTextArea(document.getElementById('codearea'), {
 });
 
 //---------codearea2 editor----------//
-let changeDisplay = () => {
+const changeDisplay = () => {
     if (setDisplay === false) {
         codearea2.style.display = 'block';
         errorMsg2.style.display = 'block';
@@ -180,16 +180,19 @@ let clickHandler = () => {
     scriptTag.setAttribute('id', 'toEval');
     scriptTag.textContent = jsx;
 
-    jsx2 = editor2.getValue();
-    scriptTag2 = document.createElement('script');
-    scriptTag2.setAttribute('id', 'toEval2');
-    scriptTag2.textContent = jsx2;
+    if (editor2) {
+        jsx2 = editor2.getValue();
+        scriptTag2 = document.createElement('script');
+        scriptTag2.setAttribute('id', 'toEval2');
+        scriptTag2.textContent = jsx2;
+    }
 
     try {
         //----------create function from user input in codearea------------//
         let body = scriptTag.textContent;
         if (body.length > 0) {
             let wrap = s => '{ return ' + body + ' };'; //return the block having function expression
+            console.log('func body is: ', body);
             let func = new Function(wrap(body));
             testing = func.apply(null, argArrString);
             //--------calculate time elapsed-------------
@@ -202,19 +205,21 @@ let clickHandler = () => {
         }
 
         //----------create function from user input in codearea------------//
-        let body2 = scriptTag2.textContent;
-        if (body2.length > 0) {
-            let wrap2 = s => '{ return ' + body2 + ' };'; //return the block having function expression
-            let func2 = new Function(wrap2(body2));
-            testing2 = func2.apply(null, argArrString);
-            //--------calculate time elapsed-------------
-            let _t1 = performance.now();
-            let _t = testing2(inputArgs[0], inputArgs[1]);
-            let _t2 = performance.now();
-            timeElapsed2 = _t2 - _t1;
-            arr2.push(timeElapsed2);
+        if (scriptTag2) {
+            let body2 = scriptTag2.textContent;
+            if (body2.length > 0) {
+                let wrap2 = s => '{ return ' + body2 + ' };'; //return the block having function expression
+                let func2 = new Function(wrap2(body2));
+                testing2 = func2.apply(null, argArrString);
+                //--------calculate time elapsed-------------
+                let _t1 = performance.now();
+                let _t = testing2(inputArgs[0], inputArgs[1]);
+                let _t2 = performance.now();
+                timeElapsed2 = _t2 - _t1;
+                arr2.push(timeElapsed2);
 
-            errorMsg2.value = `Output: ${_t}`;
+                errorMsg2.value = `Output: ${_t}`;
+            }
         }
 
         //---------------reset arg array length----------------------------//
