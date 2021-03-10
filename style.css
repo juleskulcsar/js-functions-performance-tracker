@@ -13,6 +13,7 @@ body {
     background-image: url('wave.svg');
     color: white;
     background-size: cover;
+    height: 100vh;
 }
 
 #editor {
@@ -116,7 +117,8 @@ body {
     display: inline-block;
     padding-bottom: 3.3rem;
     padding-left: 1rem;
-    margin-left: 3rem;
+    margin-left: 2em;
+    margin-right: 1em;
     background: rgb(21, 49, 68);
     background: linear-gradient(
         158deg,

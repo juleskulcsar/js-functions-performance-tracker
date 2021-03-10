@@ -34,7 +34,7 @@ function chart() {
                 {
                     label: 'Time Elapsed Solution1',
                     data: arr,
-                    borderColor: 'rgb(223, 117, 20)',
+                    borderColor: 'green',
                     fill: false
                 }
             ]
@@ -80,13 +80,13 @@ function chartTwoSolution() {
                 {
                     label: 'Time Elapsed Solution1',
                     data: arr,
-                    borderColor: 'rgb(223, 117, 20)',
+                    borderColor: 'green',
                     fill: false
                 },
                 {
                     label: 'Time Elapsed Solution2',
                     data: arr2,
-                    borderColor: 'green',
+                    borderColor: 'rgb(223, 117, 20)',
                     fill: false
                 }
             ]
@@ -192,7 +192,9 @@ let clickHandler = () => {
         let body = scriptTag.textContent;
         if (body.length > 0) {
             let wrap = s => '{ return ' + body + ' };'; //return the block having function expression
-            console.log('func body is: ', body);
+            // console.log('func body is: ', body);
+            // const count_forLoops = (body.match(/for/g) || []).length;
+            // console.log('for loops: ', count_forLoops);
             let func = new Function(wrap(body));
             testing = func.apply(null, argArrString);
             //--------calculate time elapsed-------------
