@@ -86,7 +86,7 @@ function chartTwoSolution() {
                 {
                     label: 'Time Elapsed Solution2',
                     data: arr2,
-                    borderColor: 'rgb(223, 117, 20)',
+                    borderColor: '#ef7b5f',
                     fill: false
                 }
             ]
