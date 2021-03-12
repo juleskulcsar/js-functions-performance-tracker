@@ -77,6 +77,7 @@ body {
 }
 
 .submit,
+.reset,
 .add_2nd_solution {
     display: inline-block;
     color: #cbdae5;
@@ -116,11 +117,13 @@ body {
 }
 
 .submit:hover,
+.reset:hover,
 .add_2nd_solution:hover {
     background: #003e41;
 }
 
 .submit:focus,
+.reset:focus,
 .add_2nd_solution:focus {
     outline: none;
 }

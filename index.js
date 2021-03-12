@@ -22,6 +22,7 @@ let errorMsg = document.querySelector('.errorMsg');
 let errorMsg2 = document.querySelector('.errorMsg2');
 let codearea2 = document.getElementById('codearea2');
 let addSolutionButton = document.querySelector('.add_2nd_solution');
+let reset = document.querySelector('.reset');
 
 //-----------generate chart----------//
 function chart() {
@@ -230,6 +231,8 @@ let clickHandler = () => {
 
         //----------------------draw chart-------------------------------//
         setDisplay ? chartTwoSolution() : chart();
+        console.log('arr is:', arr);
+        console.log('arr2 is:', arr2);
     } catch (err) {
         errorMsg.value = 'OOPSY DAISY Error: ' + err.message;
         console.log(errorMsg);
@@ -295,6 +298,18 @@ function calcArrLength(arr) {
     return count;
 }
 
+function resetChart() {
+    // console.log('reset');
+    // argArr.length = 0;
+    arr.length = 0;
+    arr2.length = 0;
+    chartLabelArr.length = 0;
+    // arr.push(0);
+    // arr2.push(0);
+    setDisplay ? chartTwoSolution() : chart();
+}
+
 setDisplay ? chartTwoSolution() : chart();
 
 submit.addEventListener('click', clickHandler);
+reset.addEventListener('click', resetChart);
