@@ -94,31 +94,20 @@ body {
     filter: drop-shadow(3px 4px 12px #101820);
     outline: none;
     text-decoration: none;
-
-    opacity: 0.7;
-    box-shadow: 50px, 60px, 189px rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(20px);
-    filter: drop-shadow(5px 4px 12px #22292e);
-    /* border: solid 1px transparent; */
-    border-radius: 20px;
-    background-image: linear-gradient(
-        125deg,
-        rgba(21, 49, 68, 0.9) 21.83%,
-        rgba(0, 62, 65, 0.1) 189.95%
-    );
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
 }
 
 .submit:hover,
 .reset:hover,
-.add_2nd_solution:hover {
+.add_2nd_solution:hover,
+#btn:hover {
     background: #003e41;
+    color: #ef7b5f;
 }
 
 .submit:focus,
 .reset:focus,
-.add_2nd_solution:focus {
+.add_2nd_solution:focus,
+#btn:focus {
     outline: none;
 }
 
@@ -128,20 +117,6 @@ body {
     padding-left: 0.4rem;
     border-radius: 8px;
     filter: drop-shadow(1px 4px 12px #101820);
-
-    opacity: 0.7;
-    box-shadow: 50px, 60px, 189px rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(20px);
-    filter: drop-shadow(5px 4px 12px #22292e);
-    border: solid 1px transparent;
-    border-radius: 20px;
-    background-image: linear-gradient(
-        125deg,
-        rgba(21, 49, 68, 0.9) 21.83%,
-        rgba(0, 62, 65, 0.1) 189.95%
-    );
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
 }
 
 #chart {
@@ -150,34 +125,6 @@ body {
     padding-left: 1rem;
     margin-left: 2em;
     margin-right: 1em;
-    /* background: rgb(21, 49, 68);
-    background: linear-gradient(
-        158deg,
-        rgba(21, 49, 68, 1) 8%,
-        rgba(0, 62, 65, 1) 94%
-    );
-    filter: drop-shadow(1px 4px 12px #101820);
-    border-radius: 20px; */
-
-    opacity: 0.7;
-    box-shadow: 50px, 60px, 189px rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(20px);
-    filter: drop-shadow(5px 4px 12px #22292e);
-    border: solid 1px transparent;
-    border-radius: 20px;
-    background-image: linear-gradient(
-            125deg,
-            rgba(21, 49, 68, 0.9) 21.83%,
-            rgba(0, 62, 65, 0.1) 189.95%
-        ),
-        url('noise.svg');
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-    border-image-source: linear-gradient(
-        175deg,
-        rgba(255, 255, 255, 0.3),
-        rgba(255, 255, 255, 1)
-    );
 }
 
 .form__label {
@@ -218,18 +165,6 @@ p {
     margin-top: 5em;
     color: #bdc5cb;
 }
-/* 
-.title:before {
-    content: '';
-    position: absolute;
-    width: 6%;
-    height: 4px;
-    bottom: 0;
-    margin-top: 3px;
-    left: 18%;
-    border-bottom: 3px solid orange;
-    float: left;
-} */
 
 span {
     color: purple;
@@ -319,6 +254,14 @@ span:hover {
     font-size: 16px;
     padding: 0.5em;
     border: 1px solid #44535d;
+}
+
+#btn,
+#chart,
+.inputField,
+.submit,
+.reset,
+.add_2nd_solution {
     opacity: 0.7;
     box-shadow: 50px, 60px, 189px rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(20px);
@@ -326,22 +269,10 @@ span:hover {
     border: solid 1px transparent;
     border-radius: 10px;
     background-image: linear-gradient(
-            125deg,
-            rgba(21, 49, 68, 0.9) 21.83%,
-            rgba(0, 62, 65, 0.1) 189.95%
-        ),
-        url('noise.svg');
+        125deg,
+        rgba(21, 49, 68, 0.9) 21.83%,
+        rgba(0, 62, 65, 0.1) 189.95%
+    );
     background-origin: border-box;
     background-clip: padding-box, border-box;
-    border-image-source: linear-gradient(
-        175deg,
-        rgba(255, 255, 255, 0.3),
-        rgba(255, 255, 255, 1)
-    );
-}
-#btn:focus {
-    outline: none;
-}
-#btn:hover {
-    color: #ef7b5f;
 }
