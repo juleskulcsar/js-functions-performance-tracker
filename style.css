@@ -99,21 +99,15 @@ body {
     box-shadow: 50px, 60px, 189px rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(20px);
     filter: drop-shadow(5px 4px 12px #22292e);
-    border: solid 1px transparent;
+    /* border: solid 1px transparent; */
     border-radius: 20px;
     background-image: linear-gradient(
-            125deg,
-            rgba(21, 49, 68, 0.9) 21.83%,
-            rgba(0, 62, 65, 0.1) 189.95%
-        ),
-        url('noise.svg');
+        125deg,
+        rgba(21, 49, 68, 0.9) 21.83%,
+        rgba(0, 62, 65, 0.1) 189.95%
+    );
     background-origin: border-box;
     background-clip: padding-box, border-box;
-    border-image-source: linear-gradient(
-        175deg,
-        rgba(255, 255, 255, 0.3),
-        rgba(255, 255, 255, 1)
-    );
 }
 
 .submit:hover,
@@ -142,18 +136,12 @@ body {
     border: solid 1px transparent;
     border-radius: 20px;
     background-image: linear-gradient(
-            125deg,
-            rgba(21, 49, 68, 0.9) 21.83%,
-            rgba(0, 62, 65, 0.1) 189.95%
-        ),
-        url('noise.svg');
+        125deg,
+        rgba(21, 49, 68, 0.9) 21.83%,
+        rgba(0, 62, 65, 0.1) 189.95%
+    );
     background-origin: border-box;
     background-clip: padding-box, border-box;
-    border-image-source: linear-gradient(
-        175deg,
-        rgba(255, 255, 255, 0.3),
-        rgba(255, 255, 255, 1)
-    );
 }
 
 #chart {
@@ -190,7 +178,6 @@ body {
         rgba(255, 255, 255, 0.3),
         rgba(255, 255, 255, 1)
     );
-    /* border-image-slice: 1; */
 }
 
 .form__label {
@@ -212,11 +199,9 @@ body {
     color: #333;
     font-size: 1.4rem;
     margin: 0 auto;
-    /* margin-bottom: 1em; */
     border: 1px solid white;
     border-radius: 0.2rem;
     background: #bdc5cb;
-    /* border: none; */
     display: block;
     transition: all 0.3s;
     filter: drop-shadow(1px 4px 12px #101820);
@@ -227,7 +212,6 @@ body {
     color: #b1b4b5;
     filter: drop-shadow(1px 4px 12px #101820);
     margin-bottom: 2em;
-    /* width: 100%; */
 }
 
 p {
@@ -246,3 +230,118 @@ p {
     border-bottom: 3px solid orange;
     float: left;
 } */
+
+span {
+    color: purple;
+}
+span:hover {
+    color: orange;
+    cursor: pointer;
+}
+
+#modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+@keyframes animate {
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+.content {
+    position: relative;
+    margin: auto;
+    padding: 0;
+    width: 40%;
+    animation-name: animate;
+    animation-duration: 0.6s;
+    filter: drop-shadow(5px 4px 12px #153144);
+    border-radius: 20px;
+    background: #8c9a98;
+}
+
+#close {
+    color: #eff1f2;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+#close:hover,
+#close:focus {
+    color: #ef7b5f;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-top {
+    padding: 2px 16px;
+    opacity: 0.7;
+    color: #eff1f2;
+    background: rgb(21, 49, 68);
+    background: linear-gradient(
+        158deg,
+        rgba(21, 49, 68, 1) 8%,
+        rgba(0, 62, 65, 1) 94%
+    );
+}
+
+.modal-bottom {
+    padding: 2em;
+    opacity: 0.8;
+    box-shadow: 50px, 60px, 189px rgba(0, 0, 0, 0.95);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    color: white;
+    height: 400px;
+    text-align: center;
+}
+
+#btn {
+    position: relative;
+    color: white;
+    font-size: 16px;
+    padding: 0.5em;
+    border: 1px solid #44535d;
+    opacity: 0.7;
+    box-shadow: 50px, 60px, 189px rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    filter: drop-shadow(5px 4px 12px #22292e);
+    border: solid 1px transparent;
+    border-radius: 10px;
+    background-image: linear-gradient(
+            125deg,
+            rgba(21, 49, 68, 0.9) 21.83%,
+            rgba(0, 62, 65, 0.1) 189.95%
+        ),
+        url('noise.svg');
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    border-image-source: linear-gradient(
+        175deg,
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 1)
+    );
+}
+#btn:focus {
+    outline: none;
+}
+#btn:hover {
+    color: #ef7b5f;
+}

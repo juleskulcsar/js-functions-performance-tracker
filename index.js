@@ -23,6 +23,19 @@ let errorMsg2 = document.querySelector('.errorMsg2');
 let codearea2 = document.getElementById('codearea2');
 let addSolutionButton = document.querySelector('.add_2nd_solution');
 let reset = document.querySelector('.reset');
+const modal = document.getElementById('modal');
+const btn = document.getElementById('btn');
+const span = document.getElementById('close');
+
+//-----------modal----------//
+btn.onclick = function() {
+    modal.style.display = 'block';
+    btn.style.visibility = 'hidden';
+};
+span.onclick = function() {
+    modal.style.display = 'none';
+    btn.style.visibility = 'visible';
+};
 
 //-----------generate chart----------//
 function chart() {
@@ -151,7 +164,7 @@ const changeDisplay = () => {
             }
         );
         chartTwoSolution();
-        addSolutionButton.innerHTML = 'Remove 2nd solution';
+        addSolutionButton.innerHTML = 'remove 2nd solution';
         submit.innerHTML = 'call solutions';
     } else {
         editor2.toTextArea();
