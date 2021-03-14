@@ -166,14 +166,6 @@ p {
     color: #bdc5cb;
 }
 
-span {
-    color: purple;
-}
-span:hover {
-    color: orange;
-    cursor: pointer;
-}
-
 #modal {
     display: none;
     position: fixed;
@@ -275,4 +267,8 @@ span:hover {
     );
     background-origin: border-box;
     background-clip: padding-box, border-box;
+}
+
+span {
+    color: #ef7b5f;
 }

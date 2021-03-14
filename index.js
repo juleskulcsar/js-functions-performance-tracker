@@ -206,10 +206,15 @@ let clickHandler = () => {
         let body = scriptTag.textContent;
         if (body.length > 0) {
             let wrap = s => '{ return ' + body + ' };'; //return the block having function expression
-            // console.log('func body is: ', body);
+            //ignore comments in the code
+            body = body.replace(
+                /(?:\/\*(?:[\s\S]*?)\*\/)|(?:[\s;]+\/\/(?:.*)$)/gm,
+                ''
+            );
             // const count_forLoops = (body.match(/for/g) || []).length;
             // console.log('for loops: ', count_forLoops);
             let func = new Function(wrap(body));
+            console.log('func is: ', func);
             testing = func.apply(null, argArrString);
             //--------calculate time elapsed-------------
             let t1 = performance.now();
@@ -223,6 +228,11 @@ let clickHandler = () => {
         //----------create function from user input in codearea------------//
         if (scriptTag2) {
             let body2 = scriptTag2.textContent;
+            //ignore comments in the code
+            body2 = body2.replace(
+                /(?:\/\*(?:[\s\S]*?)\*\/)|(?:[\s;]+\/\/(?:.*)$)/gm,
+                ''
+            );
             if (body2.length > 0) {
                 let wrap2 = s => '{ return ' + body2 + ' };'; //return the block having function expression
                 let func2 = new Function(wrap2(body2));
@@ -244,8 +254,6 @@ let clickHandler = () => {
 
         //----------------------draw chart-------------------------------//
         setDisplay ? chartTwoSolution() : chart();
-        console.log('arr is:', arr);
-        console.log('arr2 is:', arr2);
     } catch (err) {
         errorMsg.value = 'OOPSY DAISY Error: ' + err.message;
         console.log(errorMsg);
