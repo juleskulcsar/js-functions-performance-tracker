@@ -25,7 +25,7 @@ For now only runs with 1 and/or 2 arguments of type:
 -   number
 -   array
 
-The code will not run if comments are added in the editor. Only paste your function
+# Release
 
 -   Version 1.00
 -   License: MIT
