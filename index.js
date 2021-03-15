@@ -6,15 +6,13 @@ let jsx;
 let jsx2;
 let scriptTag;
 let scriptTag2;
-let testing;
-let testing2;
+let applyFuncArguments;
+let applyFuncArguments2;
 let timeElapsed;
 let timeElapsed2;
-let arr = [];
-let arr2 = [];
+let timeElapsedArr = [];
+let timeElapsedArr2 = [];
 let inputArgs = [];
-let chartLabel = 0;
-let chartLabelArr = [];
 let setDisplay = false;
 let editor2;
 let submit = document.querySelector('.submit');
@@ -24,17 +22,17 @@ let codearea2 = document.getElementById('codearea2');
 let addSolutionButton = document.querySelector('.add_2nd_solution');
 let reset = document.querySelector('.reset');
 const modal = document.getElementById('modal');
-const btn = document.getElementById('btn');
+const showModal = document.getElementById('showModal');
 const span = document.getElementById('close');
 
 //-----------modal----------//
-btn.onclick = function() {
+showModal.onclick = function() {
     modal.style.display = 'block';
-    btn.style.visibility = 'hidden';
+    showModal.style.visibility = 'hidden';
 };
 span.onclick = function() {
     modal.style.display = 'none';
-    btn.style.visibility = 'visible';
+    showModal.style.visibility = 'visible';
 };
 
 //-----------generate chart----------//
@@ -43,11 +41,11 @@ function chart() {
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: chartLabelArr,
+            labels: argArr,
             datasets: [
                 {
                     label: 'Time Elapsed Solution1',
-                    data: arr,
+                    data: timeElapsedArr,
                     borderColor: 'green',
                     fill: false
                 }
@@ -79,6 +77,11 @@ function chart() {
                 fontSize: 20,
                 fontColor: '#CBDAE5'
             },
+            defaults: {
+                scale: {
+                    ticks: { min: 0 }
+                }
+            },
             events: ['click']
         }
     });
@@ -89,17 +92,17 @@ function chartTwoSolution() {
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: chartLabelArr,
+            labels: argArr,
             datasets: [
                 {
                     label: 'Time Elapsed Solution1',
-                    data: arr,
+                    data: timeElapsedArr,
                     borderColor: 'green',
                     fill: false
                 },
                 {
                     label: 'Time Elapsed Solution2',
-                    data: arr2,
+                    data: timeElapsedArr2,
                     borderColor: '#ef7b5f',
                     fill: false
                 }
@@ -130,6 +133,11 @@ function chartTwoSolution() {
                 text: 'Performance Visualisation',
                 fontSize: 20,
                 fontColor: '#CBDAE5'
+            },
+            defaults: {
+                scale: {
+                    ticks: { min: 0 }
+                }
             },
             events: ['click']
         }
@@ -164,7 +172,7 @@ const changeDisplay = () => {
             }
         );
         chartTwoSolution();
-        addSolutionButton.innerHTML = 'remove 2nd solution';
+        addSolutionButton.innerHTML = 'hide 2nd solution';
         submit.innerHTML = 'call solutions';
     } else {
         editor2.toTextArea();
@@ -172,7 +180,7 @@ const changeDisplay = () => {
         errorMsg2.style.display = 'none';
         setDisplay = false;
         chart();
-        addSolutionButton.innerHTML = 'Add 2nd solution';
+        addSolutionButton.innerHTML = 'add a 2nd solution';
         submit.innerHTML = 'call solution';
     }
 };
@@ -183,12 +191,8 @@ let clickHandler = () => {
     // e.preventDefault();
     getFirstInput();
     getSecondInput();
-    chartTest(argArr);
-
-    chartLabel = 0;
 
     document.createElement('script').remove;
-
     jsx = editor.getValue();
     scriptTag = document.createElement('script');
     scriptTag.setAttribute('id', 'toEval');
@@ -205,24 +209,22 @@ let clickHandler = () => {
         //----------create function from user input in codearea------------//
         let body = scriptTag.textContent;
         if (body.length > 0) {
-            let wrap = s => '{ return ' + body + ' };'; //return the block having function expression
+            let wrap = () => '{ return ' + body + ' };'; //return the block having function expression
             //ignore comments in the code
             body = body.replace(
                 /(?:\/\*(?:[\s\S]*?)\*\/)|(?:[\s;]+\/\/(?:.*)$)/gm,
                 ''
             );
             // const count_forLoops = (body.match(/for/g) || []).length;
-            // console.log('for loops: ', count_forLoops);
             let func = new Function(wrap(body));
-            console.log('func is: ', func);
-            testing = func.apply(null, argArrString);
+            applyFuncArguments = func.apply(null, argArrString);
             //--------calculate time elapsed-------------
             let t1 = performance.now();
-            let t = testing(inputArgs[0], inputArgs[1]);
+            let funcOutput = applyFuncArguments(inputArgs[0], inputArgs[1]);
             let t2 = performance.now();
             timeElapsed = t2 - t1;
-            arr.push(timeElapsed);
-            errorMsg.value = `Output: ${t}`;
+            timeElapsedArr.push(timeElapsed);
+            errorMsg.value = `Output: ${funcOutput}`;
         }
 
         //----------create function from user input in codearea------------//
@@ -234,24 +236,25 @@ let clickHandler = () => {
                 ''
             );
             if (body2.length > 0) {
-                let wrap2 = s => '{ return ' + body2 + ' };'; //return the block having function expression
+                let wrap2 = () => '{ return ' + body2 + ' };'; //return the block having function expression
                 let func2 = new Function(wrap2(body2));
-                testing2 = func2.apply(null, argArrString);
+                applyFuncArguments2 = func2.apply(null, argArrString);
                 //--------calculate time elapsed-------------
                 let _t1 = performance.now();
-                let _t = testing2(inputArgs[0], inputArgs[1]);
+                let _funcOutput = applyFuncArguments2(
+                    inputArgs[0],
+                    inputArgs[1]
+                );
                 let _t2 = performance.now();
                 timeElapsed2 = _t2 - _t1;
-                arr2.push(timeElapsed2);
+                timeElapsedArr2.push(timeElapsed2);
 
-                errorMsg2.value = `Output: ${_t}`;
+                errorMsg2.value = `Output: ${_funcOutput}`;
             }
         }
-
         //---------------reset arg array length----------------------------//
         argArrString.length = 0;
         inputArgs.length = 0;
-
         //----------------------draw chart-------------------------------//
         setDisplay ? chartTwoSolution() : chart();
     } catch (err) {
@@ -291,18 +294,6 @@ function getSecondInput() {
     return argArr;
 }
 
-function chartTest(argArr) {
-    if (argArr.length === 1) {
-        chartLabel = argArr[0];
-        chartLabelArr.push(chartLabel);
-    } else {
-        for (let i = 0; i < argArr.length; i++) {
-            chartLabel = argArr[i];
-        }
-        chartLabelArr.push(chartLabel);
-    }
-}
-
 function calcArrLength(arr) {
     let count = 0;
     for (let i = 0; i < arr.length; i++) {
@@ -320,17 +311,11 @@ function calcArrLength(arr) {
 }
 
 function resetChart() {
-    // console.log('reset');
-    // argArr.length = 0;
-    arr.length = 0;
-    arr2.length = 0;
-    chartLabelArr.length = 0;
-    // arr.push(0);
-    // arr2.push(0);
+    timeElapsedArr.length = 0;
+    timeElapsedArr2.length = 0;
     setDisplay ? chartTwoSolution() : chart();
 }
 
 setDisplay ? chartTwoSolution() : chart();
-
 submit.addEventListener('click', clickHandler);
 reset.addEventListener('click', resetChart);

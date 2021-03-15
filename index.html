@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <title>testing</title>
@@ -12,30 +11,26 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.54.0/theme/midnight.min.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
-
 <body>
-
-<button id="btn">How it works</button>
-<div id="modal">
-  <div class="content">
-    <div class="modal-top">
-      <span class="material-icons" id="close">
+  <div id="modal">
+    <div class="content">
+      <div class="modal-top">
+        <span class="material-icons" id="close">
         highlight_off
-      </span>
-      <h3>Hi, I'm Jules</h3>
+        </span>
+        <h3>Hi, I'm Jules</>
     </div>
     <div class="modal-bottom">
       <p>how it works</p>
+      </div>
     </div>
   </div>
-</div>
-
   <div class="titleWrapper">
-    <h1 class="title">JS Functions <span>BigO</span> Visualisation <span class="material-icons" style="font-size: 35px;">
+    <h1 class="title">Big-<span>O</span> Visualisation For <span>JavaScript</span> Algorithms <span class="material-icons" style="font-size: 35px;">
       insights
     </span></h1>
+    <button id="showModal">How it works</button>
   </div>
-  <!-- <p>Paste your function bellow. ATTENTION: don't call your function in the editor. Add your argument/s and click "call function/s" to run it</p> -->
   <div class="inputField">
     <label class="form__label" for="arg1">arg 1:</label>
     <input type="text" id="arg1" name="arg1" />
@@ -45,7 +40,7 @@
     <input type="text" id="arg2" name="arg2" />
   </div>
   <button class="submit">call function</button>
-  <button class="add_2nd_solution">add 2nd solution</button>
+  <button class="add_2nd_solution">add a 2nd solution</button>
   <button class="reset">reset chart</button>
   <div id="wrapper">
     <div id="editor">
@@ -63,9 +58,11 @@
       <canvas id="myChart" width="450" height="450"></canvas>
     </div>
   </div>
+  <div class="footer">
+    @Jules Kulcsar
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
   </script>
   <script src="index.js"></script>
 </body>
-
 </html>
