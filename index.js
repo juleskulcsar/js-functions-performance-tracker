@@ -173,7 +173,7 @@ const changeDisplay = () => {
         );
         chartTwoSolution();
         addSolutionButton.innerHTML = 'hide 2nd solution';
-        submit.innerHTML = 'call solutions';
+        submit.innerHTML = 'run solutions';
     } else {
         editor2.toTextArea();
         codearea2.style.display = 'none';
@@ -181,7 +181,7 @@ const changeDisplay = () => {
         setDisplay = false;
         chart();
         addSolutionButton.innerHTML = 'add a 2nd solution';
-        submit.innerHTML = 'call solution';
+        submit.innerHTML = 'run solution';
     }
 };
 addSolutionButton.addEventListener('click', changeDisplay);
