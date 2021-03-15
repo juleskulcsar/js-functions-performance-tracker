@@ -12,6 +12,17 @@ body {
     background-size: cover;
 }
 
+p {
+    font-size: 14px;
+}
+
+.video {
+    filter: drop-shadow(1px 1px 18px #101820);
+}
+.video:focus {
+    outline: none;
+}
+
 #editor {
     display: flex;
     justify-content: space-between;
@@ -203,16 +214,16 @@ body {
     padding: 1em;
 }
 
-p {
+/* p {
     margin-top: 5em;
     color: #bdc5cb;
-}
+} */
 
 #modal {
     display: none;
     position: fixed;
     z-index: 1;
-    padding-top: 100px;
+    padding-top: 80px;
     left: 0;
     top: 0;
     width: 100%;
@@ -242,7 +253,8 @@ p {
     animation-duration: 0.6s;
     filter: drop-shadow(5px 4px 12px #153144);
     border-radius: 20px;
-    background: #8c9a98;
+    /* background: #8c9a98; */
+    background: #5b6f7c;
     z-index: 10;
 }
 
@@ -280,8 +292,8 @@ p {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     color: white;
-    height: 400px;
-    text-align: center;
+    height: 500px;
+    text-align: left;
 }
 
 span {
