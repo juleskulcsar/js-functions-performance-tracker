@@ -37,10 +37,12 @@ p {
 .codeareaWrapper {
     display: flex;
     flex-direction: column;
+    /* margin-right: 2em; */
 }
 
 .CodeMirror {
-    width: 25rem;
+    max-width: 25rem;
+    width: 100%;
     min-height: 25rem;
     display: inline-block;
     filter: drop-shadow(1px 1px 18px #101820);
@@ -50,7 +52,8 @@ p {
 
 .errorMsg2,
 .errorMsg {
-    width: 25rem;
+    max-width: 25rem;
+    width: 100%;
     max-height: 30rem;
     color: #ef7b5f;
     font-size: 20px;
@@ -169,13 +172,17 @@ p {
     padding-left: 1em;
     border-radius: 8px;
 }
+button,
+.btn-wrapper {
+    display: inline-block;
+}
 
 #chart {
     display: inline-block;
     padding-bottom: 3.3rem;
-    padding-left: 1rem;
-    margin-left: 2em;
     margin-right: 1em;
+    max-width: 400px;
+    width: 100%;
 }
 
 .form__label {
@@ -213,11 +220,6 @@ p {
     margin: 0;
     padding: 1em;
 }
-
-/* p {
-    margin-top: 5em;
-    color: #bdc5cb;
-} */
 
 #modal {
     display: none;
@@ -304,4 +306,52 @@ span {
     width: 100%;
     color: #bdc5cb;
     font-size: 12px;
+}
+@media (max-width: 768px) {
+    #wrapper {
+        flex-direction: column-reverse;
+    }
+}
+@media (max-width: 768px) {
+    .codeareaWrapper {
+        margin-bottom: 1em;
+        margin-right: 0;
+    }
+}
+@media (min-width: 768px) {
+    .codeareaWrapper {
+        margin-right: 2em;
+    }
+}
+@media (max-width: 768px) {
+    #chart {
+        margin-bottom: 1.5rem;
+    }
+}
+@media (max-width: 768px) {
+    #editor {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .btn-wrapper {
+        text-align: center;
+        margin-top: 1em;
+    }
+}
+@media (max-width: 768px) {
+    h1 {
+        font-size: 18px;
+    }
+}
+@media (max-width: 768px) {
+    .content {
+        width: 90%;
+    }
+}
+@media (max-width: 768px) {
+    video {
+        width: 90%;
+    }
 }

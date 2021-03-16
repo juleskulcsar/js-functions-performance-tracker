@@ -52,6 +52,7 @@ function chart() {
             ]
         },
         options: {
+            responsive: true,
             scales: {
                 yAxes: [
                     {
