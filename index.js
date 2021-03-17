@@ -18,6 +18,7 @@ let editor2;
 let submit = document.querySelector('.submit');
 let errorMsg = document.querySelector('.errorMsg');
 let errorMsg2 = document.querySelector('.errorMsg2');
+let codearea = document.getElementById('codearea');
 let codearea2 = document.getElementById('codearea2');
 let addSolutionButton = document.querySelector('.add_2nd_solution');
 let reset = document.querySelector('.reset');
@@ -146,7 +147,7 @@ function chartTwoSolution() {
 }
 
 //---------codearea editor----------//
-const editor = CodeMirror.fromTextArea(document.getElementById('codearea'), {
+let editor = CodeMirror.fromTextArea(document.getElementById('codearea'), {
     lineNumbers: true,
     mode: 'javascript',
     theme: 'lucario',
@@ -194,13 +195,18 @@ let clickHandler = () => {
     getSecondInput();
 
     document.createElement('script').remove;
-    jsx = editor.getValue();
+    //get editor text value and ignore 'comments'
+    jsx = editor
+        .getValue()
+        .replace(/(?:\/\*(?:[\s\S]*?)\*\/)|([^\\:]|^)\/\/.*$/gm, '');
     scriptTag = document.createElement('script');
     scriptTag.setAttribute('id', 'toEval');
     scriptTag.textContent = jsx;
 
     if (editor2) {
-        jsx2 = editor2.getValue();
+        jsx2 = editor2
+            .getValue()
+            .replace(/(?:\/\*(?:[\s\S]*?)\*\/)|([^\\:]|^)\/\/.*$/gm, '');
         scriptTag2 = document.createElement('script');
         scriptTag2.setAttribute('id', 'toEval2');
         scriptTag2.textContent = jsx2;
@@ -209,13 +215,9 @@ let clickHandler = () => {
     try {
         //----------create function from user input in codearea------------//
         let body = scriptTag.textContent;
+        body = body.replace(/^\s*/gm, '');
         if (body.length > 0) {
             let wrap = () => '{ return ' + body + ' };'; //return the block having function expression
-            //ignore comments in the code
-            body = body.replace(
-                /(?:\/\*(?:[\s\S]*?)\*\/)|(?:[\s;]+\/\/(?:.*)$)/gm,
-                ''
-            );
             // const count_forLoops = (body.match(/for/g) || []).length;
             let func = new Function(wrap(body));
             applyFuncArguments = func.apply(null, argArrString);
@@ -231,11 +233,7 @@ let clickHandler = () => {
         //----------create function from user input in codearea------------//
         if (scriptTag2) {
             let body2 = scriptTag2.textContent;
-            //ignore comments in the code
-            body2 = body2.replace(
-                /(?:\/\*(?:[\s\S]*?)\*\/)|(?:[\s;]+\/\/(?:.*)$)/gm,
-                ''
-            );
+            body2 = body2.replace(/^\s*/gm, '');
             if (body2.length > 0) {
                 let wrap2 = () => '{ return ' + body2 + ' };'; //return the block having function expression
                 let func2 = new Function(wrap2(body2));
