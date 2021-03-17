@@ -15,6 +15,8 @@ let timeElapsedArr2 = [];
 let inputArgs = [];
 let setDisplay = false;
 let editor2;
+let error = false;
+let error2 = false;
 let submit = document.querySelector('.submit');
 let errorMsg = document.querySelector('.errorMsg');
 let errorMsg2 = document.querySelector('.errorMsg2');
@@ -190,6 +192,8 @@ addSolutionButton.addEventListener('click', changeDisplay);
 
 //--------------click handler on RUN--------------------//
 let clickHandler = () => {
+    error = false;
+    error2 = false;
     // e.preventDefault();
     getFirstInput();
     getSecondInput();
@@ -227,9 +231,21 @@ let clickHandler = () => {
             let t2 = performance.now();
             timeElapsed = t2 - t1;
             timeElapsedArr.push(timeElapsed);
+            error
+                ? (errorMsg.style.color = 'red')
+                : (errorMsg.style.color = 'green');
             errorMsg.value = `Output: ${funcOutput}`;
         }
+    } catch (err) {
+        errorMsg.value = 'OOPSY DAISY Error: ' + err.message;
+        error = true;
+        error
+            ? (errorMsg.style.color = 'red')
+            : (errorMsg.style.color = 'green');
+        console.log(errorMsg);
+    }
 
+    try {
         //----------create function from user input in codearea------------//
         if (scriptTag2) {
             let body2 = scriptTag2.textContent;
@@ -247,7 +263,9 @@ let clickHandler = () => {
                 let _t2 = performance.now();
                 timeElapsed2 = _t2 - _t1;
                 timeElapsedArr2.push(timeElapsed2);
-
+                error2
+                    ? (errorMsg2.style.color = 'red')
+                    : (errorMsg2.style.color = '#ef7b5f');
                 errorMsg2.value = `Output: ${_funcOutput}`;
             }
         }
@@ -257,7 +275,11 @@ let clickHandler = () => {
         //----------------------draw chart-------------------------------//
         setDisplay ? chartTwoSolution() : chart();
     } catch (err) {
-        errorMsg.value = 'OOPSY DAISY Error: ' + err.message;
+        errorMsg2.value = 'OOPSY DAISY Error: ' + err.message;
+        error2 = true;
+        error2
+            ? (errorMsg2.style.color = 'red')
+            : (errorMsg2.style.color = '#ef7b5f');
         console.log(errorMsg);
     }
 };
