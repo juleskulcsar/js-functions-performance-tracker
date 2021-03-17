@@ -3,7 +3,7 @@
 
 body {
     box-sizing: border-box;
-    margin: 0;
+    margin: 0 auto;
     padding: 1em;
     font-family: tahoma, arial, sans-serif;
     background-color: #153144;
@@ -14,6 +14,19 @@ body {
 
 p {
     font-size: 14px;
+}
+
+a {
+    color: #cfdcda;
+    padding: 0 1em;
+}
+
+a:hover {
+    color: #f0a556;
+}
+
+section {
+    margin: 0 2em;
 }
 
 .video {
@@ -107,11 +120,11 @@ p {
     backdrop-filter: blur(20px);
 }
 
-#chart {
+/* #chart {
     border: 1px solid transparent;
     border-radius: 20px;
     filter: drop-shadow(1px 1px 18px #101820);
-}
+} */
 
 #chart,
 .submit,
@@ -183,6 +196,9 @@ button,
     margin-right: 1em;
     max-width: 400px;
     width: 100%;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    filter: drop-shadow(1px 1px 18px #101820);
 }
 
 .form__label {
