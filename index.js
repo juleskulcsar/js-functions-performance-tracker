@@ -77,7 +77,7 @@ function chart() {
             },
             title: {
                 display: true,
-                text: 'Performance Visualisation',
+                text: 'BigO Chart Representation',
                 fontSize: 20,
                 fontColor: '#CBDAE5'
             },
@@ -134,7 +134,7 @@ function chartTwoSolution() {
             },
             title: {
                 display: true,
-                text: 'Performance Visualisation',
+                text: 'BigO Chart Representation',
                 fontSize: 20,
                 fontColor: '#CBDAE5'
             },

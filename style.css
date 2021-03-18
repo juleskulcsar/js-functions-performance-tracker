@@ -3,7 +3,7 @@
 
 body {
     box-sizing: border-box;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     padding: 1em;
     font-family: tahoma, arial, sans-serif;
     background-color: #153144;
@@ -27,6 +27,10 @@ a:hover {
 
 section {
     margin: 0 2em;
+}
+
+span {
+    color: #ef7b5f;
 }
 
 .video {
@@ -67,8 +71,7 @@ section {
 .errorMsg {
     max-width: 25rem;
     width: 100%;
-    max-height: 30rem;
-    color: #ef7b5f;
+    max-height: 40rem;
     font-size: 16px;
     display: inline-block;
     outline: 0px none transparent;
@@ -120,12 +123,6 @@ section {
     backdrop-filter: blur(20px);
 }
 
-/* #chart {
-    border: 1px solid transparent;
-    border-radius: 20px;
-    filter: drop-shadow(1px 1px 18px #101820);
-} */
-
 #chart,
 .submit,
 .reset,
@@ -138,6 +135,23 @@ section {
     background-origin: border-box;
     background-clip: padding-box, border-box;
     display: inline-block;
+}
+
+.submit:hover,
+.reset:hover,
+.add_2nd_solution:hover {
+    background-image: linear-gradient(
+        125deg,
+        rgba(216, 59, 13, 0.9) 21.83%,
+        rgba(0, 62, 65, 0.7) 189.95%
+    );
+}
+
+.submit:focus,
+.reset:focus,
+.add_2nd_solution:focus,
+#showModal:focus {
+    outline: none;
 }
 
 .submit {
@@ -161,23 +175,6 @@ section {
         rgba(21, 49, 68, 0.9) 21.83%,
         rgba(0, 62, 65, 0.1) 189.95%
     );
-}
-
-.submit:hover,
-.reset:hover,
-.add_2nd_solution:hover {
-    background-image: linear-gradient(
-        125deg,
-        rgba(216, 59, 13, 0.9) 21.83%,
-        rgba(0, 62, 65, 0.7) 189.95%
-    );
-}
-
-.submit:focus,
-.reset:focus,
-.add_2nd_solution:focus,
-#showModal:focus {
-    outline: none;
 }
 
 .inputField {
@@ -234,7 +231,7 @@ button,
 
 .title {
     margin: 0;
-    padding: 1em;
+    padding: 0 1em 2em 1em;
 }
 
 #modal {
@@ -314,10 +311,6 @@ button,
     text-align: left;
 }
 
-span {
-    color: #ef7b5f;
-}
-
 .footer {
     width: 100%;
     color: #bdc5cb;
@@ -369,5 +362,11 @@ span {
 @media (max-width: 768px) {
     video {
         width: 90%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #chart {
+        margin-left: 3em;
     }
 }
